@@ -53,12 +53,23 @@
 
 
                     <Button
+                        android:id="@+id/button11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTintMode="src_atop"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:background="@color/Sky_a"
+                        android:onClick="Result"
+                        android:text="Result"/>
+                    <Button
                         android:id="@+id/button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTintMode="src_atop"
                         android:background="@color/Sky_a"
                         android:layout_weight="1"
+                        android:layout_marginTop="10dp"
                         android:textSize="20sp"
                         android:onClick="mod"
 
@@ -193,6 +204,7 @@
                         android:onClick="POW"
                         android:layout_marginTop="10dp"
                         android:text="N1^N2" />
+
 
 
 

@@ -10,20 +10,30 @@ import java.lang.Math;
 public class MainActivity extends AppCompatActivity {
         EditText no1,no2;
         TextView quantityTextView;
-        double n1,n2;
+        double n1,n2,number;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
-        }
-        private void display (double number){
+            number=-Double.MAX_VALUE;
             quantityTextView =(TextView) findViewById(R.id.result);
+        }
+        private void display (double n){
+            number=n;
+
             if(number==-Double.MAX_VALUE)
                 quantityTextView.setText("Kindly Enter both the numbers");
             else
             quantityTextView.setText(""+number);
         }
+    public void Result(View view) {
+            if(number!=-Double.MAX_VALUE)
+            {no1.setText(""+number);no2.setText("");}
+            else
+                quantityTextView.setText("Kindly Calculate Something");
+    }
+
         private double getn1(){
             no1=(EditText) findViewById(R.id.num1);
             String str=no1.getText().toString();
@@ -195,5 +205,7 @@ public class MainActivity extends AppCompatActivity {
             display(n1 % n2);
         }
     }
+
+
 }
 
