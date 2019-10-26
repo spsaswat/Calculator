@@ -89,16 +89,20 @@ public class MainActivity extends AppCompatActivity {
                 display(-Double.MAX_VALUE);
             else {
                 int n = (int) (n1 + n2);
-                if (n > 19) {
-                    TextView o_p = (TextView) findViewById(R.id.result);
-                    o_p.setText(n + " is > 19 enter (n1+n2)<19");
-                } else {
-                    int f = 1, i;
+                if(n<0)
+                    quantityTextView.setText("n1 and n2 should be positive");
+                else {
+                    if (n > 19) {
+                        TextView o_p = (TextView) findViewById(R.id.result);
+                        o_p.setText(n + " is > 19 enter (n1+n2)<19");
+                    } else {
+                        int f = 1, i;
 
-                    for (i = 1; i <= (int) n; i++) {
-                        f = f * i;
+                        for (i = 1; i <= (int) n; i++) {
+                            f = f * i;
+                        }
+                        display((double) f);
                     }
-                    display((double) f);
                 }
             }
         }
@@ -109,18 +113,22 @@ public class MainActivity extends AppCompatActivity {
                 display(-Double.MAX_VALUE);
             else {
                 int n = (int) (n1 + n2);
-                int c = 0, i;
-                for (i = 1; i * i <= (int) n; i++) {
-                    if ((n % i) == 0) {
-                        c++;
+                if(n<0)
+                    quantityTextView.setText("n1 and n2 should be positive");
+                else {
+                    int c = 0, i;
+                    for (i = 1; i * i <= (int) n; i++) {
+                        if ((n % i) == 0) {
+                            c++;
+                        }
                     }
-                }
-                TextView o_p = (TextView) findViewById(R.id.result);
+                    TextView o_p = (TextView) findViewById(R.id.result);
 
-                if (c == 1) {
-                    o_p.setText("Yes, " + n + " is prime");
-                } else {
-                    o_p.setText("No, " + n + " is not prime");
+                    if (c == 1) {
+                        o_p.setText("Yes, " + n + " is prime");
+                    } else {
+                        o_p.setText("No, " + n + " is not prime");
+                    }
                 }
             }
         }
@@ -130,6 +138,9 @@ public class MainActivity extends AppCompatActivity {
             if(n1==-1||n2==-1)
                 display(-Double.MAX_VALUE);
             else {
+                if(n1<0||n2<0)
+                    quantityTextView.setText("n1 and n2 should be positive");
+                else
                 display((1 - n2 / 100) * n1);
             }
         }
@@ -142,6 +153,10 @@ public class MainActivity extends AppCompatActivity {
             else {
                 n1 = (int) getn1();
                 n2 = (int) getn2();
+                if(n1<0)
+                    n1*=-1;
+                if(n2<0)
+                    n2*=-1;
                 if (n2 == 0)
                     display(n1);
                 else if (n1 == 0) {
@@ -168,6 +183,10 @@ public class MainActivity extends AppCompatActivity {
             else {
                 n1 = (int) getn1();
                 n2 = (int) getn2();
+                if(n1<0)
+                    n1*=-1;
+                if(n2<0)
+                    n2*=-1;
                 n3 = n1;
                 n4 = n2;
                 if (n2 == 0 || n1 == 0 || (n1 == 0 && n2 == 0))
@@ -202,7 +221,10 @@ public class MainActivity extends AppCompatActivity {
             long n1, n2;
             n1 = (int) getn1();
             n2 = (int) getn2();
+            if(n2>0)
             display(n1 % n2);
+            else
+                quantityTextView.setText("n2 can't be -ve or 0");
         }
     }
 
